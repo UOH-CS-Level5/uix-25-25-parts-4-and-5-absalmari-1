@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentPulse | University of Hull</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="site-wrapper">
+
+    <header class="main-header">
+<div class="header-left">
+    <a href="https://hull.service-now.com/student" target="_blank">
+        <img src="logo3.jpeg" alt="Logo" class="header-logo">
+    </a>
+</div>
+        <div class="header-center">
+            <h1 id="page-title">Home Page</h1>
+        </div>
+        <div class="header-right">
+            <i class="fas fa-home home-icon hidden" id="home-icon" onclick="logout()"></i>
+        </div> 
+    </header>
+
+    <main class="content-area">
+        <section id="home-screen" class="view">
+            <h2 class="welcome-text">Welcome to StudentPulse</h2>
+            <hr class="sep-1">
+            <h3 class="access-text">Access as:</h3>
+            <hr class="sep-2">
+            
+            <div class="button-group">
+                <button class="nav-btn" onclick="showLoginForm('student')">Student</button>
+                <button class="nav-btn" onclick="showLoginForm('supervisor')">Personal Supervisor</button>
+                <button class="nav-btn" onclick="showLoginForm('senior')">Senior Tutor</button>
+            </div>
+
+            <div id="login-container" class="login-form-area hidden">
+                <h2 id="login-title">Login</h2>
+                <p>Please enter your Credentials</p>
+                <div class="form-row">
+                    <label>User ID:</label>
+                    <input type="text" id="username">
+                </div>
+                <div class="form-row">
+                    <label>Password:</label>
+                    <input type="password" id="password" onkeydown="if(event.key === 'Enter') handleLogin()">
+                </div>
+                <button class="submit-btn" onclick="handleLogin()">Submit</button>
+            </div>
+        </section>
+
+        <section id="student-board" class="view hidden">
+            <div id="user-details-box" class="board-inner"></div>
+            <h3 class="access-text">What do you want to do today?</h3>
+            <hr class="sep-1">
+            <div class="button-group">
+                <button class="nav-btn" onclick="showActionForm('report')">Self Reporting</button>
+                <button class="nav-btn" onclick="showActionForm('meeting')">Arrange a Meeting</button>
+            </div>
+
+            <div id="report-form" class="login-form-area hidden">
+                <h2>Student Self reporting</h2>
+                <div class="form-row-vertical">
+                    <label>Enter your Report:</label>
+                    <textarea id="report-text" rows="3"></textarea>
+                </div>
+                <div class="emoji-selector">
+                    <span onclick="selectEmoji(this, '🤩')">🤩</span>
+                    <span onclick="selectEmoji(this, '😊')">😊</span>
+                    <span onclick="selectEmoji(this, '😐')">😐</span>
+                    <span onclick="selectEmoji(this, '😟')">😟</span>
+                    <span onclick="selectEmoji(this, '😢')">😢</span>
+                </div>
+                <button class="submit-btn" onclick="submitReport()">Submit Report</button>
+            </div>
+
+            <div id="meeting-form" class="login-form-area hidden">
+                <h2>Student Meeting</h2>
+                <div class="form-row"><label>Date:</label><input type="date" id="meeting-date"></div>
+                <div class="form-row"><label>Reason:</label><input type="text" id="meeting-reason"></div>
+                <button class="submit-btn" onclick="submitMeeting()">Submit Meeting</button>
+            </div>
+        </section>
+
+        <section id="supervisor-board" class="view hidden">
+            <div id="sup-details-box" class="board-inner"></div>
+            <h3 class="access-text">Choose what you want to do today?</h3>
+            <hr class="sep-1">
+            <div class="button-group">
+                <button class="nav-btn" onclick="showSupAction('view-students')">View Student States</button>
+                <button class="nav-btn" onclick="showSupAction('arrange-meeting')">Arrange a Meeting</button>
+            </div>
+
+            <div id="sup-view-students" class="login-form-area hidden">
+                <h2>PS Viewing Students</h2>
+                <div id="student-table-container"></div>
+                <hr class="sep-2">
+                <p>Enter ID to see full history:</p>
+                <div class="form-row">
+                    <input type="text" id="lookup-id" placeholder="S101">
+                    <button class="submit-btn" style="margin-left:10px;" onclick="lookupStudent()">Search</button>
+                </div>
+                <div id="student-history-result" class="board-inner hidden" style="text-align:left;"></div>
+            </div>
+
+            <div id="sup-meeting-form" class="login-form-area hidden">
+                <h2>Student Meeting</h2>
+                <div class="form-row"><label>Date:</label><input type="date" id="sup-meeting-date"></div>
+                <div class="form-row"><label>Student ID:</label><input type="text" id="sup-meeting-sid"></div>
+                <button class="submit-btn" onclick="submitSupMeeting()">Submit</button>
+            </div>
+        </section>
+
+        <section id="senior-tutor-board" class="view hidden">
+            <div id="st-details-box" class="board-inner"></div>
+            <h3 class="access-text">Choose what you want to do today?</h3>
+            <hr class="sep-1">
+            <div class="button-group">
+                <button class="nav-btn" onclick="showSTAction('view-all-students')">View Student States</button>
+                <button class="nav-btn" onclick="showSTAction('review-supervisors')">Review Supervisors</button>
+            </div>
+
+            <div id="st-view-students" class="login-form-area hidden" style="max-width: 800px;">
+                <h2>ST Viewing All Students</h2>
+                <div id="all-students-table-container"></div>
+                <hr class="sep-2">
+                <p>Enter ID to see full history:</p>
+                <div class="form-row">
+                    <input type="text" id="st-lookup-id" placeholder="S101">
+                    <button class="submit-btn" style="margin-left:10px;" onclick="stLookupStudent()">Search</button>
+                </div>
+                <div id="st-student-history-result" class="board-inner hidden" style="text-align:left;"></div>
+            </div>
+
+            <div id="st-review-supervisors" class="login-form-area hidden">
+                <h2>ST Review Supervisors</h2>
+                <div id="supervisors-table-container"></div>
+                <hr class="sep-2">
+                <div class="form-row">
+                    <label>Supervisor ID:</label>
+                    <input type="text" id="review-sup-id" placeholder="PS1">
+                </div>
+                <p>Select number of stars:</p>
+                <div class="star-rating" id="star-container">
+                    <span onclick="selectStars(1)">★</span>
+                    <span onclick="selectStars(2)">★</span>
+                    <span onclick="selectStars(3)">★</span>
+                    <span onclick="selectStars(4)">★</span>
+                    <span onclick="selectStars(5)">★</span>
+                </div>
+                <button class="submit-btn" onclick="submitSupReview()">Submit Review</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-columns">
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <p>T: +44 (0)1482 462 222</p>
+            </div>
+            <div class="footer-column">
+                <h4>Support</h4>
+                <a href="#" class="footer-link">Student Assistance</a>
+            </div>
+        </div>
+        <div class="footer-copyright"><p>&copy; University of Hull | All rights reserved</p></div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
