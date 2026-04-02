@@ -12,14 +12,20 @@ As we have discussed in the report portfolio there are 3 customers:
 ### Student
 - Should be able to book a meeting with their supervisor
 - Should be able to report their feelings at fixed time intervals
+- As shown in the following sequence diagram:
+![alt text](seq-student-1.png)
 
 ### Personal Supervisor (PS)
 - Should be able to book meetings with his students
 - Should be able to review their status
+- As shown in the following sequence diagram:
+![alt text](seq-PS-1.png)
 
 ### Senior Tutor (ST)
 - Should be able to see the status of the students
 - Should be able to see how the supervisors and students are interacting with each other
+- As shown in the following sequence diagram:
+![alt text](seq-ST-1.png)
 
 ## Implementation Techniques
 Built with semantic HTML5, responsive CSS3 custom properties, vanilla ES6 for logic, FontAwesome icons, and a mock database to simulate backend interactions.
@@ -46,7 +52,7 @@ No specialized server or compiler is required to run this prototype.
 | **PS** | Arrange Meeting | Home Page → Select "PS" → Enter Credentials → Open PS Panel → Select "Arrange a Meeting" → Choose Student and slot → Submit. |
 | **Senior Tutor** | Reviewing & Monitoring | Home Page → Select "ST" → Enter Credentials → Open ST Panel → Select "View Student States" or "Review Supervisors" → Monitor oversight & status. |
 
-## 📊 Test Data
+## Test Data
 
 The prototype utilizes a simulated backend environment to demonstrate the functionality of the interface without an external server. This data is stored within a constant object named `database` located at the beginning of the **`script.js`** file.
 
