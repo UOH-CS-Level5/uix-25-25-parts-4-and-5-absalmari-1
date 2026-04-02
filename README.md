@@ -45,3 +45,42 @@ No specialized server or compiler is required to run this prototype.
 | **PS** | Monitoring | Home Page → Select "PS" → Enter Credentials → Open PS Panel → Select "View Student States" → View traffic-light list → Analyze. |
 | **PS** | Arrange Meeting | Home Page → Select "PS" → Enter Credentials → Open PS Panel → Select "Arrange a Meeting" → Choose Student and slot → Submit. |
 | **Senior Tutor** | Reviewing & Monitoring | Home Page → Select "ST" → Enter Credentials → Open ST Panel → Select "View Student States" or "Review Supervisors" → Monitor oversight & status. |
+
+## 📊 Test Data
+
+The prototype utilizes a simulated backend environment to demonstrate the functionality of the interface without an external server. This data is stored within a constant object named `database` located at the beginning of the **`script.js`** file.
+
+### **1. Student Test Accounts**
+These accounts are used to simulate student interactions, such as self-reporting and requesting appointments.
+
+| Student ID | Name | Password | status |
+| :--- | :--- | :--- | :--- |
+| S101 | ABDULLAH SAEED | 123 | Green |
+| S102 | John Doe | 123 | Amber |
+| S103 | Jane Smith | 123 | Red |
+| S104 | Michael Chen | 123 | Green |
+| S105 | Sarah Jenkins | 123 | Green |
+| S106 | Omar Farooq | 123 | Amber |
+| S107 | Emily Davis | 123 | Red |
+| S108 | Liam Wilson | 123 | Green |
+| S109 | Sophia Martinez | 123 | Amber |
+
+---
+
+### **2. Personal Supervisor (PS) Test Accounts**
+These credentials allow for the demonstration of student monitoring and triage from a supervisor's perspective.
+
+| Staff ID | Name | Password | Assigned Students |
+| :--- | :--- | :--- | :--- |
+| PS1 | Dr. Smith | 456 | S101, S102, S103 |
+| PS2 | Dr. Brown | 456 | S104, S105, S106 |
+| PS3 | Dr. Taylor | 456 | S107, S108, S109 |
+
+---
+
+### **3. Senior Tutor (ST) Test Account**
+This account provides administrative oversight to review supervisor performance and global student status.
+
+| Staff ID | Name | Password |
+| :--- | :--- | :--- |
+| ST1 | Prof. Williams | 789 |
