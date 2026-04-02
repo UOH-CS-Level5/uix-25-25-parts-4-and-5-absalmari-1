@@ -41,7 +41,7 @@ No specialized server or compiler is required to run this prototype.
 | Role | Journey Type | Steps (Navigation & Action) |
 | :--- | :--- | :--- |
 | **Student** | Self-Reporting | Home Page → Select "Student" → Enter Credentials → Open Student Panel → Select "Self-Reporting" → Input mood/progress data → Submit. |
-| **Student** | Requesting Help | Home Page → Select "Student" → Enter Credentials → Open Student Panel → Select "Arrange a Meeting" → Input Date/Reason → Confirm. |
+| **Student** | Requesting Meeting | Home Page → Select "Student" → Enter Credentials → Open Student Panel → Select "Arrange a Meeting" → Input Date/Reason → Confirm. |
 | **PS** | Monitoring | Home Page → Select "PS" → Enter Credentials → Open PS Panel → Select "View Student States" → View traffic-light list → Analyze. |
-| **PS** | Intervention | Home Page → Select "PS" → Enter Credentials → Open PS Panel → Select "Arrange a Meeting" → Choose Student and slot → Submit. |
+| **PS** | Arrange Meeting | Home Page → Select "PS" → Enter Credentials → Open PS Panel → Select "Arrange a Meeting" → Choose Student and slot → Submit. |
 | **Senior Tutor** | Reviewing & Monitoring | Home Page → Select "ST" → Enter Credentials → Open ST Panel → Select "View Student States" or "Review Supervisors" → Monitor oversight & status. |
