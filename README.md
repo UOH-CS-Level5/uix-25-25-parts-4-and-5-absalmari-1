@@ -3,40 +3,45 @@
 
 # StudentPulse | University of Hull Prototype
 
-## 📌 Project Overview
-StudentPulse is a functional front-end web interface designed to facilitate and enhance the interaction sequence between students, personal supervisors, and senior tutors at the University of Hull. This project focuses on delivering an effective user flow for monitoring student well-being and academic support through a responsive and accessible design.
+## Project Overview
+### This is part 4 from 001_PORT:Individual UI/UX Portfolio: 
+We chose to implement Case B. StudentPulse is a functional front-end web interface designed to facilitate and enhance the interaction sequence between students, personal supervisors, and senior tutors at the University of Hull. This project focuses on delivering an effective user flow for monitoring student well-being and academic support through a responsive and accessible design.
 
-## 🚀 Features
-* **Role-Based Access:** Tailored interfaces for Students, Personal Supervisors, and Senior Tutors.
-* **Welfare Tracking:** Interactive "Traffic Light" status system (Green, Amber, Red) for immediate visual assessment of student states.
-* **Self-Reporting:** A student-led reporting tool featuring a qualitative emoji-based mood selector.
-* **Administrative Oversight:** Senior Tutor dashboard with global student search and a supervisor performance star-rating system.
-* **Data Persistence:** Utilizes browser `LocalStorage` to maintain data across sessions without a complex backend.
-* **Responsive Design:** Fully optimized for desktop, tablet, and mobile viewing using CSS Flexbox and Media Queries.
+## Objectives
+As we have discussed in the report portfolio there are 3 customers: 
+### Student
+- Should be able to book a meeting with their supervisor
+- Should be able to report their feelings at fixed time intervals
 
-## 🛠️ Implementation Techniques
-* **HTML5:** Semantic structure for improved SEO and accessibility.
-* **CSS3:** Custom variables for branding consistency and mobile-first responsive design.
-* **Vanilla JavaScript (ES6):** Logic for state management, view-switching, and data persistence.
-* **FontAwesome:** Integrated iconography for intuitive navigation.
-* **Mock Database:** A simulated backend environment to demonstrate full interaction sequences with dummy data.
+### Personal Supervisor (PS)
+- Should be able to book meetings with his students
+- Should be able to review their status
 
-## 📂 Repository Structure
+### Senior Tutor (ST)
+- Should be able to see the status of the students
+- Should be able to see how the supervisors and students are interacting with each other
+
+## Implementation Techniques
+Built with semantic HTML5, responsive CSS3 custom properties, vanilla ES6 for logic, FontAwesome icons, and a mock database to simulate backend interactions.
+
+## Repository Structure
 * `index.html`: The core structure and single-page application (SPA) views.
 * `style.css`: The visual design, color contrast management, and responsiveness rules.
 * `script.js`: The interaction logic, login authentication simulation, and LocalStorage handling.
 * `logo3.jpeg`: Official University of Hull branding.
 
-## 🔧 Setup & Installation
+## Setup & Installation
 No specialized server or compiler is required to run this prototype.
 1. Clone the repository to your local machine.
 2. Open `index.html` in any modern web browser (Chrome, Firefox, Safari, or Edge).
 
-## ♿ Accessibility & Design
-The interface was developed with the following considerations:
-* **Contrast:** High-contrast ratios using the University's primary blue (`#0E1647`) against neutral backgrounds.
-* **Affordance:** Clear hover effects on buttons and interactive elements to guide user intent.
-* **Navigation:** A persistent "Home" icon allowing users to reset their session and change roles easily.
 
----
-*Developed as part of the "Architectures, Operating Systems and the Cloud" portfolio at the University of Hull.*
+## Customer Journey Map (CJM)
+
+| Role | Journey Type | Steps (Navigation & Action) |
+| :--- | :--- | :--- |
+| **Student** | Self-Reporting | Home Page → Select "Student" → Enter Credentials → Open Student Panel → Select "Self-Reporting" → Input mood/progress data → Submit. |
+| **Student** | Requesting Help | Home Page → Select "Student" → Enter Credentials → Open Student Panel → Select "Arrange a Meeting" → Input Date/Reason → Confirm. |
+| **PS** | Monitoring | Home Page → Select "PS" → Enter Credentials → Open PS Panel → Select "View Student States" → View traffic-light list → Analyze. |
+| **PS** | Intervention | Home Page → Select "PS" → Enter Credentials → Open PS Panel → Select "Arrange a Meeting" → Choose Student and slot → Submit. |
+| **Senior Tutor** | Reviewing & Monitoring | Home Page → Select "ST" → Enter Credentials → Open ST Panel → Select "View Student States" or "Review Supervisors" → Monitor oversight & status. |
