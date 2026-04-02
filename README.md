@@ -90,3 +90,17 @@ This account provides administrative oversight to review supervisor performance 
 | Staff ID | Name | Password |
 | :--- | :--- | :--- |
 | ST1 | Prof. Williams | 789 |
+
+---
+## System Functional & Security Test Plan
+
+| Objective / Scenario | User Role | Step-by-Step Execution | Result |
+|----------------------|-----------|------------------------|--------|
+| Goal A: Self-Reporting | Student | Home → Student Button → Enter S101 → Fill Mood Form → Submit. | Passed ✅ |
+| Goal B: Request Meeting | Student | Home → Student Button → Enter S101 → Open Meeting Form → Submit. | Passed ✅ |
+| Goal C: View States | Supervisor | Home → Supervisor Button → Enter PS1 → Click "View Student States." | Passed ✅ |
+| Goal D: Global Audit | Senior Tutor | Home → Tutor Button → Enter ST1 → Click "View All Student States." | Passed ✅ |
+| Goal E: Review Staff | Senior Tutor | Home → Tutor Button → Enter ST1 → Enter PS1 ID → Select Stars → Submit. | Passed ✅ |
+| Unauthorized Access | Student | Home → Senior Tutor Button → Enter Student ID (S101) → Attempt Login. | Passed ✅ |
+| Invalid Credentials | Any User | Home → Any Role → Enter "WrongUser" / "1234" → Click Login. | Passed ✅ |
+| Data Persistence | Any User | Execute any Goal → Success Alert → Refresh Page → Check Data Table. | Passed ✅ |
