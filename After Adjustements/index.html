@@ -38,7 +38,7 @@
 
             <div id="login-container" class="login-form-area hidden">
                 <h2 id="login-title">Login</h2>
-                <p>Please enter your Credentials</p>
+                <p id="login-instruction">Please enter your Credentials</p>
                 <div class="form-row">
                     <label>User ID:</label>
                     <input type="text" id="username">
@@ -47,7 +47,7 @@
                     <label>Password:</label>
                     <input type="password" id="password" onkeydown="if(event.key === 'Enter') handleLogin()">
                 </div>
-                <button class="submit-btn" onclick="handleLogin()">Submit</button>
+                <button class="submit-btn" id="login-submit-btn" onclick="handleLogin()">Submit</button>
             </div>
         </section>
 

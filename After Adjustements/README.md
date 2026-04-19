@@ -3,7 +3,7 @@
 ## Overview
 This folder contains the **updated version** of the Personal Supervisor System following user testing and evaluation.
 
-The application is based on the **StudentPulse prototype**, a functional front-end web interface designed to support interaction between students, personal supervisors, and senior tutors, with a focus on monitoring student wellbeing and academic support :contentReference[oaicite:0]{index=0}.
+The application is based on the **StudentPulse prototype**, a functional front-end web interface designed to support interaction between students, personal supervisors, and senior tutors, with a focus on monitoring student wellbeing and academic support.
 
 ---
 
@@ -26,13 +26,13 @@ The original system provided:
   - HTML, CSS, and JavaScript  
   - Simulated backend using local data storage  
 
-While the system was fully functional, user testing highlighted the need for improved **user guidance and clarity**.
+While the system was fully functional, user testing highlighted the need for improved **user guidance, clarity, and security**.
 
 ---
 
-## Implemented Adjustment
+## Implemented Adjustments
 
-### Help Button
+### 1. Help Button
 
 A **Help button** has been added to enhance usability by providing users with immediate guidance.
 
@@ -44,11 +44,27 @@ A **Help button** has been added to enhance usability by providing users with im
   - Viewing system status  
 - Easily accessible from the interface at any time  
 
-![alt text](image-1.png)
-
+![alt text](image-1.png)  
 ![alt text](image.png)
 
+---
 
+### 2. Login Security Lockout
+
+A **login lockout mechanism** has been implemented to improve system security.
+
+
+![alt text](image-2.png)
+
+#### Functionality
+- After **3 failed login attempts**, the system temporarily disables further login attempts  
+- The login form is locked for **60 seconds** before allowing new attempts  
+
+#### Purpose
+- Prevents brute-force attacks by blocking repeated incorrect attempts  
+- Encourages users to enter correct credentials carefully  
+- Introduces a basic but effective **security standard** into the system  
+- Provides clear, time-based feedback to the user  
 
 ---
 
@@ -81,5 +97,9 @@ No additional setup or installation is required.
 
 ## Summary
 
-The addition of the Help button represents a focused usability improvement based on user feedback.  
-It enhances the clarity of the system without altering its core functionality, demonstrating an iterative design approach aligned with UI/UX best practices.
+The implemented adjustments focus on improving both **usability and security**:
+
+- The **Help button** enhances user understanding and guidance  
+- The **login lockout mechanism** strengthens system security and reliability  
+
+These improvements demonstrate an iterative design approach based on user feedback, aligning with UI/UX best practices.

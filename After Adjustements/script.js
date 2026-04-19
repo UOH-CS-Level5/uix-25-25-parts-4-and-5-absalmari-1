@@ -25,6 +25,10 @@ let reviews = JSON.parse(localStorage.getItem('pulse_reviews')) || [];
 
 let currentUser = null, selectedRole = "", selectedEmojiValue = "", selectedStars = 0;
 
+// --- LOCKOUT LOGIC ---
+let loginAttempts = 0;
+let isLockedOut = false;
+
 // --- LOGIN LOGIC ---
 function showLoginForm(role) {
     selectedRole = role;
@@ -33,17 +37,55 @@ function showLoginForm(role) {
 }
 
 function handleLogin() {
+    if (isLockedOut) return;
+
     const userVal = document.getElementById('username').value, passVal = document.getElementById('password').value;
     const user = (selectedRole === 'student') ? database.students.find(s => s.id === userVal && s.pass === passVal) :
                  (selectedRole === 'supervisor') ? database.supervisors.find(p => p.id === userVal && p.pass === passVal) :
                  (userVal === database.seniorTutor.id && passVal === database.seniorTutor.pass) ? database.seniorTutor : null;
 
     if (user) { 
+        loginAttempts = 0; // Reset on success
         currentUser = user; 
         if(selectedRole === 'student') loadBoard('student-board', 'Student Board');
         else if(selectedRole === 'supervisor') loadBoard('supervisor-board', 'Supervisor Board');
         else if(selectedRole === 'senior') loadBoard('senior-tutor-board', 'ST Board');
-    } else alert("Invalid Credentials");
+    } else {
+        loginAttempts++;
+        if (loginAttempts >= 3) {
+            startLockout();
+        } else {
+            alert(`Invalid Credentials. Attempts remaining: ${3 - loginAttempts}`);
+        }
+    }
+}
+
+function startLockout() {
+    isLockedOut = true;
+    let secondsLeft = 60;
+    const submitBtn = document.getElementById('login-submit-btn');
+    const instruction = document.getElementById('login-instruction');
+
+    submitBtn.disabled = true;
+    submitBtn.style.opacity = "0.5";
+    submitBtn.style.cursor = "not-allowed";
+
+    const timer = setInterval(() => {
+        instruction.innerText = `Too many failed attempts. Try again in ${secondsLeft}s`;
+        instruction.style.color = "red";
+        secondsLeft--;
+
+        if (secondsLeft < 0) {
+            clearInterval(timer);
+            isLockedOut = false;
+            loginAttempts = 0;
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = "1";
+            submitBtn.style.cursor = "pointer";
+            instruction.innerText = "Please enter your Credentials";
+            instruction.style.color = "inherit";
+        }
+    }, 1000);
 }
 
 function loadBoard(boardId, title) {
