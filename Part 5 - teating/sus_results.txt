@@ -1,0 +1,35 @@
+SUS Test Results
+
+1. I think I would like to use the system frequently.
+Answer: 4
+
+2. I found the system easy to use.
+Answer: 5
+
+3. The system functions were well integrated.
+Answer: 4
+
+4. I think most people would learn to use this system quickly.
+Answer: 5
+
+5. I felt confident using the system.
+Answer: 5
+
+6. I found the system unnecessarily complex.
+Answer: 1
+
+7. I think I would need technical support.
+Answer: 1
+
+8. I found inconsistencies in the system.
+Answer: 2
+
+9. The system was cumbersome to use.
+Answer: 1
+
+10. I needed to learn a lot before using the system.
+Answer: 1
+
+-----------------------------
+SUS Score: 92.5
+Rating: Excellent

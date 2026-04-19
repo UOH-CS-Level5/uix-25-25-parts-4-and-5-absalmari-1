@@ -38,6 +38,10 @@ Based on Appendix A (DDD Brief), the system provides a digital solution to help 
 - Improved version after user testing  
 - UI/UX refinements based on feedback  
 
+### Part 5 - Testing
+- Contains the two usability tests conducted in Part 5  
+- Includes supporting screenshots demonstrating the testing process and results  
+
 ---
 
 ## Approach
@@ -63,5 +67,6 @@ To fully understand the development process and the impact of user testing:
 
 - Start by exploring the **Before Adjustments** folder  
 - Then review the **After Adjustments** folder  
+- Finally, check the **Part 5 - Testing** folder for evidence of usability testing and evaluation  
 
 This sequence highlights the progression from the initial implementation to the improved version after applying usability feedback.

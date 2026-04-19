@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SUS Usability Test</title>
+
+<style>
+    body {
+        font-family: Arial;
+        max-width: 700px;
+        margin: auto;
+        padding: 20px;
+    }
+    h1 { text-align: center; }
+    .question { margin-bottom: 20px; }
+    select {
+        padding: 5px;
+        width: 100%;
+    }
+    button {
+        padding: 12px;
+        width: 100%;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .result {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 18px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>SUS Usability Test</h1>
+
+<form id="susForm">
+
+<div class="question">1. I think I would like to use the system frequently.
+<select required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+
+<div class="question">2. I found the system easy to use.
+<select required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+
+<div class="question">3. The system functions were well integrated.
+<select required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+
+<div class="question">4. I think most people would learn to use this system quickly.
+<select required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+
+<div class="question">5. I felt confident using the system.
+<select required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+
+<div class="question">6. I found the system unnecessarily complex.
+<select required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+
+<div class="question">7. I think I would need technical support.
+<select required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+
+<div class="question">8. I found inconsistencies in the system.
+<select required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+
+<div class="question">9. The system was cumbersome to use.
+<select required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+
+<div class="question">10. I needed to learn a lot before using the system.
+<select required><option value="">Select</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+
+<button type="button" onclick="processSUS()">Submit & Save Results</button>
+
+</form>
+
+<div class="result" id="result"></div>
+
+<script>
+function processSUS() {
+    const selects = document.querySelectorAll("select");
+    let total = 0;
+
+    const questions = [
+        "1. I think I would like to use the system frequently.",
+        "2. I found the system easy to use.",
+        "3. The system functions were well integrated.",
+        "4. I think most people would learn to use this system quickly.",
+        "5. I felt confident using the system.",
+        "6. I found the system unnecessarily complex.",
+        "7. I think I would need technical support.",
+        "8. I found inconsistencies in the system.",
+        "9. The system was cumbersome to use.",
+        "10. I needed to learn a lot before using the system."
+    ];
+
+    let output = "SUS Test Results\n\n";
+
+    for (let i = 0; i < selects.length; i++) {
+        let value = parseInt(selects[i].value);
+
+        if (isNaN(value)) {
+            alert("Please answer all questions.");
+            return;
+        }
+
+        output += questions[i] + "\nAnswer: " + value + "\n\n";
+
+        if (i < 5) {
+            total += (value - 1);
+        } else {
+            total += (5 - value);
+        }
+    }
+
+    let susScore = total * 2.5;
+
+    let rating = "";
+    if (susScore >= 80) rating = "Excellent";
+    else if (susScore >= 68) rating = "Good";
+    else rating = "Poor";
+
+    // ✅ Show result on page
+    document.getElementById("result").innerHTML =
+        `SUS Score: ${susScore.toFixed(1)} (${rating})`;
+
+    // ✅ Add result to file
+    output += "-----------------------------\n";
+    output += "SUS Score: " + susScore.toFixed(1) + "\n";
+    output += "Rating: " + rating + "\n";
+
+    // ✅ Save file automatically
+    const blob = new Blob([output], { type: "text/plain" });
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+    link.download = "sus_results.txt";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+
+</body>
+</html>

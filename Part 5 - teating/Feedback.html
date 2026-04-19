@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Qualitative Feedback Test</title>
+
+<style>
+    body {
+        font-family: Arial;
+        max-width: 700px;
+        margin: auto;
+        padding: 20px;
+    }
+    h1 { text-align: center; }
+
+    .question {
+        margin-bottom: 20px;
+    }
+
+    textarea {
+        width: 100%;
+        height: 80px;
+        padding: 8px;
+    }
+
+    button {
+        padding: 10px;
+        width: 100%;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Post-Task Interview & Feedback</h1>
+
+<form id="feedbackForm">
+
+<div class="question">
+<p>1. During the 3 Task Flows (ST View, Student Report, PS Meeting), what part felt the most confusing or took the most effort? Please explain why.</p>
+<textarea required></textarea>
+</div>
+
+<div class="question">
+<p>2. While exploring the application freely, did you encounter any icons, buttons, or labels that didn’t immediately make sense to you?</p>
+<textarea required></textarea>
+</div>
+
+<div class="question">
+<p>3. How easy was it to distinguish between 'Primary Actions' (Submit/Save) and 'Secondary Actions' (Cancel/Back)?</p>
+<textarea required></textarea>
+</div>
+
+<div class="question">
+<p>4. If you were the lead designer, what is one specific change you would make to improve usability?</p>
+<textarea required></textarea>
+</div>
+
+<div class="question">
+<p>5. In three words, describe how you felt while using the system.</p>
+<textarea required></textarea>
+</div>
+
+<button type="button" onclick="saveResults()">Save Results</button>
+
+</form>
+
+<script>
+function saveResults() {
+    const textareas = document.querySelectorAll("textarea");
+
+    let output = "Qualitative Feedback Results\n\n";
+
+    const questions = [
+        "1. Most confusing part:",
+        "2. Unclear elements:",
+        "3. Primary vs Secondary actions:",
+        "4. Suggested improvement:",
+        "5. Three-word feeling:"
+    ];
+
+    for (let i = 0; i < textareas.length; i++) {
+        let answer = textareas[i].value.trim();
+
+        if (answer === "") {
+            alert("Please answer all questions.");
+            return;
+        }
+
+        output += questions[i] + "\n" + answer + "\n\n";
+    }
+
+    // Create file
+    const blob = new Blob([output], { type: "text/plain" });
+    const link = document.createElement("a");
+
+    link.href = URL.createObjectURL(blob);
+    link.download = "feedback_results.txt";
+    link.click();
+}
+</script>
+
+</body>
+</html>
