@@ -54,3 +54,14 @@ This repository demonstrates:
 - UI/UX design process  
 - Front-end implementation  
 - Iterative improvement through user testing  
+
+---
+
+## Important Note
+
+To fully understand the development process and the impact of user testing:
+
+- Start by exploring the **Before Adjustments** folder  
+- Then review the **After Adjustments** folder  
+
+This sequence highlights the progression from the initial implementation to the improved version after applying usability feedback.
