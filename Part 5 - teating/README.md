@@ -23,6 +23,26 @@ The purpose of this section is to demonstrate how the application was evaluated 
 - **Results:** `feedback_results.txt`  
 - Contains the collected responses and insights from the participant.
 
+#### Qualitative Feedback Results
+
+1. Most confusing part:
+Needs confirmation of error or successful bookings
+
+2. Unclear elements:
+N/A
+
+3. Primary vs Secondary actions:
+Very easy
+
+4. Suggested improvement:
+Add help button
+
+5. Three-word feeling:
+informed, accessible, connected
+
+
+
+
 ---
 
 ### 3. Quantitative Testing – System Usability Scale (SUS)
@@ -31,6 +51,32 @@ The purpose of this section is to demonstrate how the application was evaluated 
 
 - **Results:** `sus_results.txt`  
 - Contains the calculated SUS score and responses from the participant.
+
+
+#### System Usability Scale (SUS) Results
+
+| Statement Type | Question Number | User Rating (1–5) | Adjusted Score |
+|----------------|----------------|------------------|----------------|
+| Positive       | 1              | 4                | 3              |
+| Positive       | 2              | 5                | 4              |
+| Positive       | 3              | 4                | 3              |
+| Positive       | 4              | 5                | 4              |
+| Positive       | 5              | 5                | 4              |
+| Negative       | 6              | 1                | 4              |
+| Negative       | 7              | 1                | 4              |
+| Negative       | 8              | 2                | 3              |
+| Negative       | 9              | 1                | 4              |
+| Negative       | 10             | 1                | 4              |
+| **SUM**        | --             | --               | **37**         |
+| **FINAL SUS**  | --             | --               | **92.5**       |
+
+---
+
+### SUS Interpretation
+- **Score:** 92.5  
+- **Rating:** Excellent  
+
+This indicates a very high level of usability, with users finding the system easy to use, well-integrated, and requiring minimal support.
 
 ---
 
