@@ -26,21 +26,24 @@ The purpose of this section is to demonstrate how the application was evaluated 
 #### Qualitative Feedback Results
 
 1. Most confusing part:
+
 Needs confirmation of error or successful bookings
 
 2. Unclear elements:
+
 N/A
 
 3. Primary vs Secondary actions:
+
 Very easy
 
 4. Suggested improvement:
+
 Add help button
 
 5. Three-word feeling:
+
 informed, accessible, connected
-
-
 
 
 ---
