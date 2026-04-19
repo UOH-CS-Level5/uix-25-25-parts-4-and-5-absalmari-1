@@ -177,3 +177,9 @@ function submitSupReview() {
 }
 
 function logout() { location.reload(); }
+
+// --- HELP MODAL LOGIC ---
+function toggleHelp() {
+    const modal = document.getElementById('help-modal');
+    modal.classList.toggle('hidden');
+}

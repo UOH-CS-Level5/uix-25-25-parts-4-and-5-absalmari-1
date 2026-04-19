@@ -169,6 +169,21 @@
         <div class="footer-copyright"><p>&copy; University of Hull | All rights reserved</p></div>
     </footer>
 
+    <div id="help-trigger" onclick="toggleHelp()" title="Quick Help">
+        <i class="fas fa-question-circle"></i>
+    </div>
+
+    <div id="help-modal" class="hidden help-overlay">
+        <div class="help-content">
+            <span class="close-help" onclick="toggleHelp()">&times;</span>
+            <h3>Application Guide</h3>
+            <p><strong>Students:</strong> Log in to submit mood reports or request meetings.</p>
+            <p><strong>Supervisors:</strong> View assigned students and schedule meetings.</p>
+            <p><strong>Senior Tutors:</strong> Oversee all students and rate staff performance.</p>
+            <p><strong>Home:</strong> Click the House icon in the header to logout at any time.</p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

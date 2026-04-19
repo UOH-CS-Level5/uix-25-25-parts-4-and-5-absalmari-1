@@ -44,6 +44,12 @@ A **Help button** has been added to enhance usability by providing users with im
   - Viewing system status  
 - Easily accessible from the interface at any time  
 
+![alt text](image-1.png)
+
+![alt text](image.png)
+
+
+
 ---
 
 ## Repository Structure
