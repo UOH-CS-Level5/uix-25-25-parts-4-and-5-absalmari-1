@@ -46,13 +46,30 @@ A **Help button** has been added to enhance usability by providing users with im
 
 ---
 
-## Purpose of the Adjustment
+## Repository Structure
 
-This improvement was introduced to:
+- `index.html`  
+  The main entry point of the application, containing the structure and all SPA views.
 
-- Support first-time users in understanding the system  
-- Reduce confusion during interaction  
-- Improve overall usability and user experience  
+- `style.css`  
+  Handles the visual design, including layout, responsiveness, and color contrast.
+
+- `script.js`  
+  Contains the application logic, including user interactions, login simulation, and LocalStorage data handling.
+
+- `logo3.jpeg`  
+  University of Hull branding used within the interface.
+
+---
+
+## How to Run
+
+To run the application:
+
+1. Download or clone the folder contents  
+2. Open the `index.html` file in any modern web browser (Chrome, Firefox, Edge, etc.)  
+
+No additional setup or installation is required.
 
 ---
 
